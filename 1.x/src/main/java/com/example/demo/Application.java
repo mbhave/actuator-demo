@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.glassfish.jersey.server.ResourceConfig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,5 +27,10 @@ public class Application {
 	@Bean
 	public ExampleJmxEndpoint exampleJmxEndpoint(ExampleEndpoint exampleEndpoint) {
 		return new ExampleJmxEndpoint("exampleEndpoint", exampleEndpoint, new ObjectMapper());
+	}
+
+	@Bean
+	public ResourceConfig resourceConfig() {
+		return new ResourceConfig();
 	}
 }
